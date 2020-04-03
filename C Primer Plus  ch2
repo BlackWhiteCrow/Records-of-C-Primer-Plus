@@ -66,3 +66,245 @@ int main(void)
 	getchar();
 	return 0;
 };
+
+8.考虑下面的程序：
+#include <stdio.h>
+int main(void)
+{
+//输出变量words 和 lines 的值
+	int a, b;
+
+	a = 5;
+	b = 2;/* 第7行 */
+	b = a;/* 第8行 */
+	a = b;/* 第9行 */
+	printf("%d %d\n", b, a);
+	getchar();
+	return 0;
+};
+请问，在执行完第7，第8，第9 行后，程序的状态分别是什么？
+
+在执行完第7，第8，第9 行后，程序中变量 b 先被赋值2，再被赋值 5， a被赋值 5.
+
+9. 考虑下面的程序：
+#include <stdio.h>
+int main(void)
+{
+//输出变量words 和 lines 的值
+	int x,y;
+
+	x = 10;
+	y = 5;/* 第7行 */
+	y = x + y;/* 第8行 */
+	x = x*y;/* 第9行 */
+	printf("%d %d\n", x, y);
+	getchar();
+	return 0;
+};
+请问，在执行完第7，第8，第9 行后，程序的状态分别是什么？
+
+在执行完第7，第8，第9 行后，程序中变量 y 先被赋值5，再被赋值5，10两个数的和为15， x被赋值 10*15的积.
+
+编程练习
+visio studio 快捷键：F5 调试， ctrl+F5  不调试直接执行。
+
+1. 编写一个程序，调用一次printf() 函数，把你的姓名打印在一行。再调用一次printf() 函数，把你的
+姓名分别打印在两行。然后，再调用两次printf() 函数，把你的姓名打印在一行。输出应如下：
+Marshall·D·Teach 
+Marshall
+Teach
+Marshall·D·Teach
+
+#include <stdio.h>
+int main(void)
+{
+	printf("Marshall·D·Teach\n");
+	printf("Marshall\n");
+	printf("Teach\n");
+	printf("Marshall·");
+	printf("D·Teach ");
+	getchar();
+	return 0;
+};
+
+2. 编写一个程序，打印你的姓名和地址。
+#include <stdio.h>
+int main(void)
+{
+	printf("Teach\n黑胡子海贼团");
+	getchar();
+	return 0;
+};
+
+3. 编写一个程序把你的年龄转换成天数，并显示这两个值。这里不考虑闰年的问题。
+
+#include <stdio.h>
+int main(void)
+{
+	int birth_year, birth_month, birth_day;
+	int this_year = 2020, this_month = 4, this_day = 2;
+	int sum_days;
+	
+	birth_year = 1996;
+	birth_month = 2;
+	birth_day = 17;
+	
+	sum_days = (365 - 31 * 1 - 17) + 365 * (this_year - birth_year) \
+		+ 31 * 2 + 30 * 1 + 2;
+	
+	printf("生日是在 %d年 %d月 %d日，到现在一共 %d天", birth_year, birth_month, \
+		birth_day, sum_days);
+	getchar();
+	return 0;
+};
+
+4. 编写一个程序，生成以下输出：
+For he's a jolly good fellow!
+For he's a jolly good fellow!
+For he's a jolly good fellow!
+除了main 函数以外，该程序还要调用两个 自定义 函数：一个名为jolly(),
+用于打印前3条消息，调用一次打印一条：另一个函数名为deny(),打印最后一条消息。
+
+#include <stdio.h>
+
+void jolly(void);
+void deny(void);
+int main(void)
+{
+	jolly();
+	jolly();
+	jolly();
+	deny();
+	getchar();
+	return 0;
+};
+
+void jolly(void)
+{
+	printf("For he's a jolly good fellow!\n");
+
+}
+
+void deny(void) 
+{
+	printf("Which nobody can deny!\n");
+}
+
+5. 编写一个程序，生成以下输出：
+Brazil, Russia, India, China
+India, China,
+Brazil, Russia
+除了main 函数以外，该程序还要调用两个自定义函数：一个名为br(), 调用一次打印一次“Brazil，Russia”， 
+另一个名为ic（），调用一次打印一次“India， China”。其他内容在main（）函数中完成。
+
+#include <stdio.h>
+
+void br(void);
+void ic(void);
+int main(void)
+{
+	br();
+	printf(", ");
+	ic();
+	printf("\n");
+	ic();
+	printf(", ");
+	printf("\n");
+	br();
+	getchar();
+	return 0;
+};
+
+void br(void)
+{
+	printf("Brazil, Russia");
+
+}
+
+void ic(void) 
+{
+	printf("India, China");
+}
+
+
+6. 编写一个程序，创建一个整型变量toes， 并将toes 设置为10.程序中还要计算toes 的两倍和toes 的平方。
+该程序应打印3 个值，并分别描述以示区分。
+
+#include <stdio.h>
+
+
+int main(void)
+{
+	int toes = 10;
+	int toes_double, toes_square;
+
+	toes_double = 10 * 2;
+	toes_square = 10 * 10;
+	printf("toes = %d\ntoes_double = %d\ntoes_square = %d\n",\
+		toes, toes_double, toes_square);
+	getchar();
+	return 0;
+};
+
+
+7. 许多研究表明，微笑益处多多。编写一个程序，生成以下格式的输出：
+Smile！Smile！Smile！
+Smile！Smile！
+Smile！
+该程序要定义一个函数，该函数要被调用一次打印一次Smile！，根据程序的需要使用该函数。
+
+#include <stdio.h>
+
+void smile(void);
+int main(void)
+{
+	smile(); smile(); smile();
+	printf("\n");
+	smile(); smile();
+	printf("\n");
+	smile();
+	getchar();
+	return 0;
+};
+
+void smile(void)
+{
+	//打印一次Smile
+	printf("Smile！");
+}
+
+
+8. 在C语言中，函数可以调用另一个函数。编写一个程序，调用一个名为one_three()的函数。该函数
+在一行打印单词“one” ， 再调用第2个函数two(), 然后在另一行打印单词“three”。two（）函数在一
+行显示单词“two”。main（）函数在调用one_three() 函数前要打印短语“starting now：”，并在调用
+完毕后显示短语“done！”。因此，该程序的输出应如下所示：
+starting now；
+one
+two
+three
+done！
+
+#include <stdio.h>
+
+void one_three(void);
+void two(void);
+int main(void)
+{
+	printf("starting now\n");
+	one_three();
+	printf("done!\n");
+
+	getchar();
+	return 0;
+};
+
+void one_three(void)
+{
+	printf("one\n");
+	two();
+	printf("three\n");
+
+}
+void two(void) {
+	printf("two\n");
+}
