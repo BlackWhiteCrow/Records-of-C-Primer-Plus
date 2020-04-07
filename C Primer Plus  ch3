@@ -6,8 +6,12 @@ short 的范围[-32767,32767]占 16位  打印%hd %ho
 int 的范围(本机是64位，int占32位)[-2147483647，2147483647] 
 更大的整数可用long(int),占32位
 更大就可用long long(int)，占64位
+float 范围1e-37~1e37,小数点后至少6位
+
 unsigned int,short,long int  转换类型 %u
 signed int, short, long int = int, short, long int
+
+打印十六进制浮点数（如果编译器支持） %a
 
 复习题
 1.a: int
@@ -59,7 +63,8 @@ tax = rate*g;   未定义的rate
 
 9.ch ='\r' ; ch = '\
 
-10.#include <stdio.h>
+10.
+#include <stdio.h>
 
 int main(void){
 
@@ -74,3 +79,104 @@ int main(void){
 }
 
 11.换行  \  "  横向制表符
+
+编程练习
+1.#include <stdio.h>
+
+int main(void){
+   //观察整数上溢，浮点数上溢，浮点数下溢
+   int a = 1e10;
+   float b = 1.e40;
+   float c = 1e-40;
+//a = 2147483647
+//b = 1.#INF00
+//c = 0.000000
+   printf("a = %d\n",a);
+   printf("b = %f\n",b);
+   printf("c = %f\n",c);
+    return 0;
+}
+
+2.#include <stdio.h>
+
+int main(void){
+    int user;
+    printf("Pleses enter a value of ASCII as input.\n");
+    printf("Later computer will output it's char\n");
+    scanf("%d",&user);
+    printf("The char is %c\n",user);
+    return 0;
+}
+
+3. #include <stdio.h>
+
+int main(void){
+    char a = '\a';
+    printf("%c",a);
+    printf("Startled by the sudden sound, Sally shouted,\n");
+    printf("\"By the Great Pumpkin, what was that!\"\n");
+    getchar();
+    return 0;
+}
+
+4.#include <stdio.h>
+
+int main(void){
+    float a;
+
+    printf("Enter a floating-point value:\n");
+    scanf("%f",&a);
+    printf("fixed-point notation : %f\n",a);
+    printf("exponential notation: %e\n",a);
+    printf("p notation : %a\n",a);
+    getchar();
+    return 0;
+}
+
+5.#include <stdio.h>
+
+int main(void){
+    float a;
+
+    printf("Enter your ages:\n");
+    scanf("%f",&a);
+    printf("you have lived %e seconds\n",a*3.156e7);
+    return 0;
+}
+
+6.#include <stdio.h>
+
+int main(void){
+    float a;
+
+    printf("mount of kuatuo:\n");
+    scanf("%f",&a);
+    printf(" %e\n",a*950/3.0e-23);
+    return 0;
+}
+
+
+7.
+#include <stdio.h>
+
+int main(void){
+    int a;
+//英寸喝厘米换算
+    printf("enter inch:\n");
+    scanf("%d",&a);
+    printf("%d inch is %f cm",a,a*2.54);
+    return 0;
+}
+
+
+8.#include <stdio.h>
+
+int main(void){
+    float a;
+//体积换算
+    printf("enter the mounts of cups\n");
+    scanf("%f",&a);
+    printf("%f cups = %f pintuo = %f angsi = %f bigtangshao = "
+           "%f chashao",a,a/2,a*8,a*8*2,a*8*2*3);
+    return 0;
+}
