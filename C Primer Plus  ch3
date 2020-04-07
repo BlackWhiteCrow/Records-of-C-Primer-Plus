@@ -1,0 +1,76 @@
+printf()   
+%d  int
+%c  char
+转义字符 \007 表示 警报符 
+short 的范围[-32767,32767]占 16位  打印%hd %ho 
+int 的范围(本机是64位，int占32位)[-2147483647，2147483647] 
+更大的整数可用long(int),占32位
+更大就可用long long(int)，占64位
+unsigned int,short,long int  转换类型 %u
+signed int, short, long int = int, short, long int
+
+复习题
+1.a: int
+b: int float 
+c: char
+d: int
+
+2. 当数据是浮点数并且位数在8位到16位之间的时候
+
+3. 
+
+4.a char 退格
+b int 数值1066
+c float 数值99.66
+d int 数值十六进制表示的AA
+e long long float 数值科学计数法2.0e30  
+
+5. include <stdio.h> 缺#
+main{      缺int
+float g;h;    ;错误
+float tax,rate;  
+
+g = e21;   指数计数法使用错误，小数点和前面的整数不可全都省略     
+tax = rate*g;   未定义的rate
+}
+
+6.常量  数据类型 转换说明（%）
+   12      int      %d
+   0X3     int      $x
+   'C'     char     %c
+   2.34E07  double   %f
+   '\040'  char     %c
+   7.0     double   %f
+   6L     long double %Lf
+   6.0f     float   %f
+   0x5.b6p12 double  %La
+
+7.
+012  int     %o(o not 0)
+2.9e05l long double %Le
+'s'   char    %c
+100000 long int    %d
+'\n'    char   %c
+20.0f   f     %f
+0x44    int   %x
+-40     int    %d
+
+8. d    d    f     c
+
+9.ch ='\r' ; ch = '\
+
+10.#include <stdio.h>
+
+int main(void){
+
+
+   //this program is perfect
+    int cows , legs_integer;
+    printf("How many cow legs did you count?\n");
+    scanf("%d",&legs_integer);
+    cows = legs_integer / 4;
+    printf("That implies there are %d cows.\n", cows);
+    return 0;
+}
+
+11.换行  \  "  横向制表符
