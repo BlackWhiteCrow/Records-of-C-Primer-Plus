@@ -41,5 +41,10 @@ int main(void)
 
     return 0;
 }
+scanf() 只读取字符串的第一个单词
+scanf()，里面数组 name 前没有加 &
+
+
+
 复习题
 1.
